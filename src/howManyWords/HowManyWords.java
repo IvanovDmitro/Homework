@@ -23,7 +23,10 @@ public class HowManyWords {
         for (int i = 0; i < words.length; i++) {
             if (sentence.charAt(i) == ' ' & sentence.charAt(i + 1) == ' ') {
                 System.out.println("ATTENTION! You have 2 spaces between two words! Try again!");
-                System. exit(0);
+                System.exit(0);
+            } else if (sentence.charAt(0) == ' ') {
+                System.out.println("Your sentence is starting with SPACE, try again!");
+                System.exit(0);
             } else {
                 count++;
             }
