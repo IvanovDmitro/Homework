@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Palindrome {
 
-
     void runApp() {
         String word = doInputs();
         boolean result = isPalindrome(word);
