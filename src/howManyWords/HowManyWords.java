@@ -4,31 +4,30 @@ import java.util.Scanner;
 
 public class HowManyWords {
 
-    String sentence;
-    int count;
 
     void runApp() {
-        doInputs();
-        wordsCount();
-        printInfo();
+        String sentence = doInputs();
+        int qntWords = wordsCount(sentence);
+        printInfo(qntWords);
     }
 
-    void doInputs() {
+    String doInputs() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Type sentence in one line used space");
-        sentence = sc.nextLine();
+        return sc.nextLine();
     }
 
-    void wordsCount() {
-        count = 1;
+    int wordsCount(String sentence) {
+        int count = 1;
         for (int i = 0; i < sentence.length(); i++) {
             if (sentence.charAt(i) == ' ') {
                 count++;
             }
         }
+        return count;
     }
 
-    void printInfo() {
-        System.out.println("The number of words you typed: " + count);
+    void printInfo(int qntWords) {
+        System.out.println("The number of words you typed: " + qntWords);
     }
 }

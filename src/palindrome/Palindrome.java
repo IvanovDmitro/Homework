@@ -4,39 +4,42 @@ import java.util.Scanner;
 
 public class Palindrome {
 
-    String word;
-    String result;
 
     void runApp() {
-        doInputs();
-        isPalindrome();
-        printInfo();
+        String word = doInputs();
+        boolean result = isPalindrome(word);
+        printInfo(result);
     }
 
-    void doInputs() {
+    String doInputs() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Print the word");
-        word = sc.nextLine();
+        return sc.nextLine();
     }
 
-    void isPalindrome() {
+    boolean isPalindrome(String word) {
         int j = word.length();
+        if (word.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < word.length() / 2; i++) {
             if (word.charAt(i) == word.charAt(j - 1)) {
-                result = "true";
                 j--;
-            } else if (word.charAt(i) != word.charAt(j - 1)) {
-                result = "false";
-                break;
+            } else {
+                return false;
             }
         }
+        return true;
     }
 
-    void printInfo() {
-        switch (result) {
-            case "true" -> System.out.println("Palindrome");
-            case "false" -> System.out.println("Not palindrome");
+    void printInfo(boolean result) {
+        if (result) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not palindrome");
         }
     }
 }
+
+
 
