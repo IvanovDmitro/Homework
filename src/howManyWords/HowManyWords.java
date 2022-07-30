@@ -18,9 +18,13 @@ public class HowManyWords {
     }
 
     int wordsCount(String sentence) {
-        int count = 1;
-        for (int i = 0; i < sentence.length(); i++) {
-            if (sentence.charAt(i) == ' ') {
+        String[] words = sentence.split(" ");
+        int count = 0;
+        for (int i = 0; i < words.length; i++) {
+            if (sentence.charAt(i) == ' ' & sentence.charAt(i + 1) == ' ') {
+                System.out.println("ATTENTION! You have 2 spaces between two words! Try again!");
+                System. exit(0);
+            } else {
                 count++;
             }
         }
